@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-The **SQL Sales & Customer Analytics** project is a business-focused analysis of sales, product, and customer data using **Microsoft SQL Server**. The project applies SQL techniques such as **CTEs, JOINs, aggregate functions, CASE statements, and window functions** to transform transactional data into meaningful business insights.
+The **SQL Sales & Customer Analytics** project is a business-focused analysis of sales, product, and customer data using **Microsoft SQL Server**. The project applies SQL techniques such as **CTEs, JOINs, aggregate functions, CASE statements, subqueries, and window functions** to transform transactional data into meaningful business insights.
 
-The analysis focuses on **sales trends, product performance, category contribution, customer segmentation, and customer-level KPIs**, providing a structured view of business and customer performance.
+The analysis focuses on **sales trends, cumulative performance, product performance, category contribution, product segmentation, customer segmentation, and customer-level KPIs**, providing a structured view of business and customer performance.
 
 ## Data Overview
 
@@ -40,7 +40,7 @@ The analysis uses:
 - `DATE_TRUNC()`
 - Aggregation by month and year
 
-This helps understand how revenue accumulates over time and provides visibility into overall sales growth.
+This helps understand how revenue accumulates over time and provides visibility into overall sales progression.
 
 ### 3. Product Performance Analysis
 
@@ -56,11 +56,20 @@ The analysis calculates:
 
 The `AVG() OVER()` and `LAG()` window functions were used to identify products performing **above or below their historical average** and products experiencing **year-over-year growth or decline**.
 
+Two analytical approaches were implemented:
+
+- A subquery-based approach
+- A CTE-based approach using `yearly_product_sales`
+
+This demonstrates alternative ways of structuring the same analytical problem in SQL.
+
 ### 4. Category Contribution Analysis
 
 The contribution of each product category to overall sales was calculated using:
 
 **Category Sales / Overall Sales × 100**
+
+Window functions were used to calculate overall sales and determine each category's percentage contribution.
 
 The analysis showed that **Bikes contribute the majority of overall revenue**, indicating significant revenue concentration within the category.
 
@@ -91,7 +100,7 @@ This segmentation can support targeted **customer retention, upselling, and enga
 
 ### 7. Customer Analytics Report
 
-A reusable customer-level reporting view was created to consolidate key customer metrics.
+A customer-level analytical report was created to consolidate key customer metrics and purchasing behavior.
 
 The report includes:
 
@@ -107,7 +116,7 @@ The report includes:
 - Average Order Value
 - Average Monthly Spend
 
-This transforms transaction-level data into a **customer-level analytical dataset that can be used for reporting and business intelligence dashboards**.
+The report transforms transaction-level data into a **customer-level analytical dataset that can support reporting and business intelligence dashboards**.
 
 ## Key Business Insights
 
@@ -120,7 +129,7 @@ This transforms transaction-level data into a **customer-level analytical datase
 
 ## SQL Skills Demonstrated
 
-- SQL Server
+- Microsoft SQL Server
 - CTEs
 - JOINs
 - Aggregate Functions
@@ -141,6 +150,7 @@ This transforms transaction-level data into a **customer-level analytical datase
 
 ## Repository Structure
 
+```text
 sql-sales-customer-analytics/
 │
 ├── README.md
@@ -151,3 +161,4 @@ sql-sales-customer-analytics/
 ├── fact_sales.csv
 ├── dim_customers.csv
 └── dim_products.csv
+```
