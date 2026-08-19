@@ -141,19 +141,13 @@ This transforms transaction-level data into a **customer-level analytical datase
 
 ## Repository Structure
 
-```text
 sql-sales-customer-analytics/
 │
 ├── README.md
 │
-├── scripts/
-│   ├── 01_sales_trend_analysis.sql
-│   ├── 02_cumulative_analysis.sql
-│   ├── 03_product_performance_analysis.sql
-│   ├── 04_category_analysis.sql
-│   ├── 05_product_segmentation.sql
-│   ├── 06_customer_segmentation.sql
-│   └── 07_customer_report.sql
+├── 01_sales_product_customer_analysis.sql
+├── 02_customer_report.sql
 │
-└── docs/
-    └── data_dictionary.md
+├── fact_sales.csv
+├── dim_customers.csv
+└── dim_products.csv
